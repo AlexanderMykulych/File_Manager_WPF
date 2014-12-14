@@ -1,0 +1,14 @@
+﻿<Window x:Class="FileManager_Lab2.ProgressWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ProgressWindow" Height="120" Width="350">
+    <Grid>
+        <StackPanel>
+            <TextBlock Name="TextBlock1" Margin="10">
+                
+            </TextBlock>
+            <ProgressBar Minimum="0" Maximum="100" Name="ProgressBar1" Height="40" Margin="15,1,15,5"></ProgressBar>
+            
+        </StackPanel>
+    </Grid>
+</Window>

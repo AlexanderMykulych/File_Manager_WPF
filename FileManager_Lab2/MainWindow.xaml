@@ -1,0 +1,134 @@
+﻿<Window x:Class="FileManager_Lab2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="File Manager" Height="600" Width="800">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>            
+        </Grid.RowDefinitions>
+        
+        
+        
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <GridSplitter Margin="5" 
+                          VerticalAlignment="Stretch" 
+                          Grid.RowSpan="2" 
+                          HorizontalAlignment="Center" 
+                          MinWidth="5" 
+                          Grid.Column="1"></GridSplitter>
+            <Border Grid.Column="0">
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="7*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="backBtn2" Height="auto" Click="Back_Click">
+                            <Image  Source="Resource/Back.png"/>
+                        </Button>
+                        <Button Name="forwardBtn2" Height="auto" Click="Forward_Click">
+                            <Image Source="Resource/Forward.png"/>
+                        </Button>
+                        <CheckBox Name="CheckBox2" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked" HorizontalAlignment="Center" VerticalAlignment="Center">Відкривати в текстовому редакторі</CheckBox>
+                    </StackPanel>
+                    <ListView Grid.Row="1" 
+                              Name ="ListView2" 
+                              MouseDoubleClick="ListBox_MouseDoubleClick" 
+                              Margin="5">
+                        <ListView.Resources>
+                            <Style TargetType="ListViewItem">
+                                <EventSetter Event="PreviewMouseRightButtonUp" Handler="ListBox2_MouseRightUp"/>
+                            </Style>
+                        </ListView.Resources>
+                    </ListView>
+                </Grid>                
+            </Border>
+            <Border Grid.Column="2" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="7*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="backBtn1" Height="auto" Click="Back_Click">
+                            <Image  Source="Resource/Back.png"/>
+                        </Button>
+                        <Button Name="forwardBtn1" Height="auto" Click="Forward_Click">
+                            <Image Source="Resource/Forward.png"/>
+                        </Button>
+                        <CheckBox
+                                  Name="CheckBox1" 
+                                  Checked="CheckBox_Checked" 
+                                  Unchecked="CheckBox_Checked" 
+                                  HorizontalAlignment="Center" 
+                                  VerticalAlignment="Center">
+                            Відкривати в текстовому редакторі
+                        </CheckBox>
+                    </StackPanel>
+                    <ListView Grid.Row="1" 
+                              Name ="ListView1" 
+                              MouseDoubleClick="ListBox_MouseDoubleClick" 
+                              Margin="5">
+                        <ListView.Resources>
+                            <Style TargetType="ListViewItem">
+                                <EventSetter Event="PreviewMouseRightButtonUp" Handler="ListBox1_MouseRightUp"/>
+                            </Style>
+                        </ListView.Resources>
+                    </ListView>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <Popup Name="Popup1" StaysOpen="False" Placement="Mouse">
+            <ListBox>
+                <StackPanel Orientation="Horizontal" MouseLeftButtonUp="Open_Click">
+                    <Image Style="{StaticResource PopupImage}" Source="Resource/Open.png"/>
+                    <TextBlock Style="{StaticResource PopupTextBlock}">Відкрити</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" MouseLeftButtonUp="Rename_Click">
+                    <Image Style="{StaticResource PopupImage}" Source="Resource/Rename.png"/>
+                    <TextBlock Style="{StaticResource PopupTextBlock}">Перейменувати</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" MouseLeftButtonDown="Delete_Click">
+                    <Image Style="{StaticResource PopupImage}" Source="Resource/Delete.png"/>
+                    <TextBlock Style="{StaticResource PopupTextBlock}">Видалити</TextBlock>
+                </StackPanel>
+                <TextBlock IsEnabled="False">___________________</TextBlock>
+                <StackPanel Orientation="Horizontal" MouseLeftButtonUp="AddToMerge_Click">
+                    <Image Style="{StaticResource PopupImage}" Source="Resource/AddMerge.png"/>
+                    <TextBlock Style="{StaticResource PopupTextBlock}">Додати до злиття</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" MouseLeftButtonUp="SaveMerge_Click">
+                    <Image Style="{StaticResource PopupImage}" Source="Resource/SaveMerge.png"/>
+                    <TextBlock Style="{StaticResource PopupTextBlock}">Зберегти злиття</TextBlock>
+                </StackPanel>
+                <StackPanel  Orientation="Horizontal" MouseLeftButtonUp="NewMerge_Click">
+                    <Image Style="{StaticResource PopupImage}" Source="Resource/NewMerge.png"/>
+                    <TextBlock Style="{StaticResource PopupTextBlock}">Нове злиття</TextBlock>
+                </StackPanel>
+                <TextBlock IsEnabled="False">____________________</TextBlock>
+                <StackPanel Orientation="Horizontal" MouseLeftButtonUp="Copy_Click">
+                    <Image Style="{StaticResource PopupImage}" Source="Resource/Copy.png"/>
+                    <TextBlock Style="{StaticResource PopupTextBlock}">Копіювати</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" MouseLeftButtonUp="Cut_Click">
+                    <Image Style="{StaticResource PopupImage}" Source="Resource/Cut.png"/>
+                    <TextBlock Style="{StaticResource PopupTextBlock}">Вирізати</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" MouseLeftButtonUp="Past_Click">
+                    <Image Style="{StaticResource PopupImage}" Source="Resource/Past.png"/>
+                    <TextBlock Style="{StaticResource PopupTextBlock}">Вставити</TextBlock>
+                </StackPanel>
+                <TextBlock IsEnabled="False">____________________</TextBlock>
+            </ListBox>
+        </Popup>
+    </Grid>
+    
+</Window>
